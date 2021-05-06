@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Tailwind -->
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!-- Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <!-- Google Fonts Link -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet" />
+
+  <!-- Ag-Grid JS -->
+  <script src="https://unpkg.com/ag-grid-community/dist/ag-grid-community.min.noStyle.js"></script>
+
+  <!-- Ag-Grid CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/ag-grid-community/dist/styles/ag-grid.css" />
+  <link rel="stylesheet" href="https://unpkg.com/ag-grid-community/dist/styles/ag-theme-alpine.css" />
+
+  <title>Help Desk | Tickets</title>
+</head>
+
+<body class="min-h-screen flex flex-col">
+  <!-- Navbar -->
+  <nav class="px-8 flex items-center bg-gray-800 p-2 flex-wrap">
+    <div class="logo p-1 mr-4">
+      <a href="./" class="text-white">
+        <h1 class="text-3xl font-medium leading-tight">Help Desk</h1>
+        <span class="mt-0 text-xl font-light leading-tight">Tickets</span>
+    </div>
+    </a>
+
+    <button class="focus:outline-none ml-auto text-white inline-flex p-3 hover:bg-gray-900 rounded sm:hidden"
+      id="btn-nav">
+      <i class="material-icons" id="btn-icon">menu</i>
+    </button>
+
+    <div class="hidden links w-full sm:inline-flex sm:flex-grow sm:w-auto" id="nav-links">
+      <div
+        class="border-t my-2 pt-1 flex flex-col sm:border-none sm:inline-flex sm:flex-row sm:ml-auto text-gray-300 font-light">
+        <a href="./" id="test-logout" class="sm:inline-flex sm:w-auto px-3 py-2 rounded hover:text-white hover:bg-gray-900" style="display:none">
+          <span>
+            Logout
+          </span>
+        </a>
+        <a href="./" id="test-login" class="sm:inline-flex sm:w-auto px-3 py-2 rounded hover:text-white hover:bg-gray-900">
+          <span>
+            Login
+          </span>
+        </a>
+        <a href="#" class="sm:inline-flex sm:w-auto px-3 py-2 rounded hover:text-white hover:bg-gray-900">
+          <span>
+            Tickets
+          </span>
+        </a>
+        <a href="newticket.html" class="sm:inline-flex sm:w-auto px-3 py-2 rounded hover:text-white hover:bg-gray-900">
+          <span>
+            New Tickets
+          </span>
+        </a>
+        <a href="register.html" id="test-register" class="sm:inline-flex sm:w-auto px-3 py-2 rounded hover:text-white hover:bg-gray-900">
+          <span>
+            Register
+          </span>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main -->
+  <main class="bg-gray-300 flex-grow">
+    <div class="text-center py-20 px-6 max-w-screen-lg text-gray-900 mx-auto">
+      <span class="text-2xl font-medium">Create new ticket</span>
+      <div class="text-left mt-4 bg-white shadow-md rounded-lg">
+        <div class="h-2 bg-gray-600 rounded-t-md"></div>
+        <div class="px-6 py-6">
+          <div class="mb-5 flex justify-between">
+            <input type="text" placeholder="Type to filter..." id="filter-text-box" oninput="onFilterTextBoxChanged()"
+              class="w-48 focus:ring-0 rounded-lg bg-gray-50">
+            <button class="text-white bg-gray-800 hover:bg-gray-900 rounded-md text-center sm:hidden">
+              <span class="material-icons text-center pt-1.5 w-10">add</span>
+            </button>
+            <button class="text-white bg-gray-600 hover:bg-gray-700 rounded-md w-48 hidden sm:block">Create new
+              ticket</button>
+          </div>
+          <div id="myGrid" class="ag-theme-alpine mx-auto" style="height: 900px; max-width: 100%"></div>
+        </div>
+      </div>
+    </div>
+
+    </div>
+  </main>
+
+
+  <footer class="footer bg-gray-800 py-4">
+    <p class="text-xl text-white font-light text-center items-baseline">© Help desk team</p>
+  </footer>
+
+
+  <!-- Axios JS -->
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+  <!-- Custom JS -->
+  <script src="scripts/checkAuth.js"></script>
+  <script src="scripts/tickets.js"></script>
+  <script src="scripts/script.js"></script>
+</body>
+
+</html>
