@@ -21,7 +21,6 @@ exports.index = function (req, res) {
 exports.add = function (req, res) {
   console.log(req.body);
   var ticket = new Ticket();
-  ticket.id = req.body.id;
   ticket.title = req.body.title;
   ticket.user = req.body.user;
   ticket.toDepartment = req.body.toDepartment;
@@ -55,7 +54,6 @@ exports.update = function (req, res) {
   Ticket.findById(req.params.ticket_id, function (err, ticket) {
     if (err) res.send(err);
 
-    ticket.id = req.body.id;
     ticket.title = req.body.title;
     ticket.user = req.body.userName;
     ticket.toDepartment = req.body.toDepartment;

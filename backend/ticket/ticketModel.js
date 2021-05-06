@@ -2,10 +2,6 @@ var mongoose = require("mongoose");
 
 //schema
 var ticketSchema = mongoose.Schema({
-  id: {
-    type: String,
-    required: true,
-  },
   title: {
     type: String,
     required: true,

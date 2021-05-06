@@ -1,11 +1,8 @@
 var mongoose = require("mongoose");
+const passportLocal = require("passport-local").Strategy;
 
 //schema
 var userSchema = mongoose.Schema({
-  id: {
-    type: String,
-    required: true,
-  },
   firstName: {
     type: String,
     required: true,
@@ -18,7 +15,7 @@ var userSchema = mongoose.Schema({
     type: String,
     required: true,
   },
-  email: {
+  username: {
     type: String,
     required: true,
   },
@@ -28,7 +25,7 @@ var userSchema = mongoose.Schema({
   },
   userType: {
     type: String,
-    required: true,
+    default: "user",
   },
   created_at: {
     type: Date,
@@ -37,7 +34,7 @@ var userSchema = mongoose.Schema({
 });
 
 // Export User Model
-var User = (module.exports = mongoose.model("user", userSchema));
+module.exports = mongoose.model("user", userSchema);
 
 module.exports.get = function (callback, limit) {
   User.find(callback).limit(limit);
