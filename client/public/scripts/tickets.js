@@ -7,7 +7,7 @@ let ticketsDb = [];
 axios
   .get("http://localhost:4000/api/ticket")
   .then((res) => {
-    ticketsDb = res.data;
+    ticketsDb = res.data.data;
     console.log(res.data.data);
   })
   .catch((err) => console.log(err));
@@ -15,10 +15,9 @@ axios
 // Ag Grid //
 // Specify columns
 const columnDefs = [
-  { field: "id", lockPosition: true }, //eu zic ca e mai bine ca id-ul sa ramana pe pozitie, si oricum bagam filter dupa criteriu pe care il vrea
-  { field: "title" },
+  { field: "title", lockPosition: true },
   { field: "user" },
-  { field: "department" },
+  { field: "Department" },
   { field: "status" },
 ];
 
@@ -35,10 +34,11 @@ agGrid
 const gridOptions = {
   columnDefs: columnDefs,
   rowData: rowData,
+  rowSelection: "single",
+  onSelectionChanged: onSelectionChanged,
 };
 const mobileColumn = [
-  { field: "id", lockPosition: true },
-  { field: "title" },
+  { field: "title", lockPosition: true },
   { field: "status" },
 ];
 
@@ -70,23 +70,10 @@ const eGridDiv = document.querySelector("#myGrid");
 // create the grid passing in the div to use together with the columns & data we want to use
 new agGrid.Grid(eGridDiv, gridOptions);
 
-function openTicket(event) {
-  ticketsDb.forEach((ticket) => {
-    if (
-      event.target.innerHTML === ticket.id ||
-      ticket.title ||
-      ticket.user ||
-      ticket.department ||
-      ticket.status
-    ) {
-      console.log(event.target.innerHTML);
-    }
-  });
+function onSelectionChanged() {
+  var selectedRows = gridOptions.api.getSelectedRows();
+  console.log(selectedRows[0]);
 }
-
-eGridDiv.addEventListener("click", (e) => {
-  openTicket(e);
-});
 
 function onFilterTextBoxChanged() {
   gridOptions.api.setQuickFilter(

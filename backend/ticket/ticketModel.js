@@ -10,13 +10,13 @@ var ticketSchema = mongoose.Schema({
     type: String,
     required: true,
   },
-  toDepartment: {
+  Department: {
     type: String,
     required: true,
   },
   status: {
     type: String,
-    required: true,
+    default: "Pending",
   },
   priority: {
     type: String,

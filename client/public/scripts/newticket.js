@@ -14,6 +14,19 @@ sendTicketBtn.addEventListener("click", () => {
       notificationAlert.classList.toggle("hidden");
     }, 3000);
   } else {
+    axios({
+      method: "POST",
+      data: {
+        title: ticketTitleInput.value,
+        user: data[0],
+        Department:
+          selectDepartament.options[selectDepartament.selectedIndex].text,
+        priority: selectPriority.options[selectPriority.selectedIndex].text,
+        ticketDetails: textAreaInput.value,
+      },
+      withCredentials: true,
+      url: "http://localhost:4000/api/ticket/",
+    }).then((res) => console.log(res));
     console.log(window.location.replace("tickets.html"));
   }
 });

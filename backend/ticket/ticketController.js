@@ -23,7 +23,7 @@ exports.add = function (req, res) {
   var ticket = new Ticket();
   ticket.title = req.body.title;
   ticket.user = req.body.user;
-  ticket.toDepartment = req.body.toDepartment;
+  ticket.Department = req.body.Department;
   ticket.status = req.body.status;
   ticket.priority = req.body.priority;
   ticket.ticketDetails = req.body.ticketDetails;
@@ -56,7 +56,7 @@ exports.update = function (req, res) {
 
     ticket.title = req.body.title;
     ticket.user = req.body.userName;
-    ticket.toDepartment = req.body.toDepartment;
+    ticket.Department = req.body.Department;
     ticket.status = req.body.status;
     ticket.priority = req.body.priority;
     ticket.ticketDetails = req.body.ticketDetails;
