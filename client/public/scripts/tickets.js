@@ -4,13 +4,13 @@ const createTicketBtn = document.querySelector("#create-ticket");
 let ticketsDb = [];
 
 // Populate table with tickets
-// axios
-//   .get("http://localhost:3000/api/ticket")
-//   .then((res) => {
-//     ticketsDb = res.data;
-//     console.log(res.data.data);
-//   })
-//   .catch((err) => console.log(err));
+axios
+  .get("http://localhost:4000/api/ticket")
+  .then((res) => {
+    ticketsDb = res.data;
+    console.log(res.data.data);
+  })
+  .catch((err) => console.log(err));
 
 // Ag Grid //
 // Specify columns
@@ -24,10 +24,12 @@ const columnDefs = [
 
 const rowData = [];
 
-agGrid.simpleHttpRequest({ url: "tickets.json" }).then((data) => {
-  gridOptions.api.setRowData(data);
-  gridOptions.api.sizeColumnsToFit(); //am adaugat asta sa nu mai arate bara orizontala jos, in tabel (vedem noi cum ramane mai incolo dar parca da mai bine asa)
-});
+agGrid
+  .simpleHttpRequest({ url: "http://localhost:4000/api/ticket" })
+  .then((data) => {
+    gridOptions.api.setRowData(data.data);
+    gridOptions.api.sizeColumnsToFit(); //am adaugat asta sa nu mai arate bara orizontala jos, in tabel (vedem noi cum ramane mai incolo dar parca da mai bine asa)
+  });
 
 // let the grid know which columns and what data to use
 const gridOptions = {
@@ -92,15 +94,20 @@ function onFilterTextBoxChanged() {
   ); //asta nu cred ca o sa ramana asa, trebuie facut altfel
 }
 
-logout.addEventListener("click", () => {
-  axios({
-    method: "GET",
-    withCredentials: true,
-    url: "http://localhost:4000/api/user/logout",
-  });
-});
-
 // Listen for click event on create ticket button
 // createTicketBtn.addEventListener("click", () => {
 //   window.location.replace("../newticket.html");
 // });
+
+window.onload = async () => {
+  await getUser();
+  if (isLogged) {
+    newTicket.style.display = "block";
+    ticket.style.display = "block";
+    logout.style.display = "block";
+    ticketsContainer.style.display = "block";
+  } else {
+    login.style.display = "block";
+    register.style.display = "block";
+  }
+};

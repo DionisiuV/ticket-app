@@ -39,22 +39,27 @@
     <div class="hidden links w-full sm:inline-flex sm:flex-grow sm:w-auto" id="nav-links">
       <div
         class="border-t my-2 pt-1 flex flex-col sm:border-none sm:inline-flex sm:flex-row sm:ml-auto text-gray-300 font-light">
-        <a href="./" id="test-login" class="sm:inline-flex sm:w-auto px-3 py-2 rounded hover:text-white hover:bg-gray-900">
+        <a href="#" id="test-logout" class="sm:inline-flex sm:w-auto px-3 py-2 rounded hover:text-white hover:bg-gray-900" style="display:none">
+          <span>
+            Logout
+          </span>
+        </a>
+        <a href="./" id="test-login" class="sm:inline-flex sm:w-auto px-3 py-2 rounded hover:text-white hover:bg-gray-900"style="display: none">
           <span>
             Login
           </span>
         </a>
-        <a href="tickets.html" class="sm:inline-flex sm:w-auto px-3 py-2 rounded hover:text-white hover:bg-gray-900">
+        <a href="tickets.html" id="test-tickets" class="sm:inline-flex sm:w-auto px-3 py-2 rounded hover:text-white hover:bg-gray-900" style="display: none">
           <span>
             Tickets
           </span>
         </a>
-        <a href="newticket.html" class="sm:inline-flex sm:w-auto px-3 py-2 rounded hover:text-white hover:bg-gray-900">
+        <a href="newticket.html" id="test-newticket" class="sm:inline-flex sm:w-auto px-3 py-2 rounded hover:text-white hover:bg-gray-900" style="display: none">
           <span>
             New Tickets
           </span>
         </a>
-        <a href="#" id="test-register" class="sm:inline-flex sm:w-auto px-3 py-2 rounded hover:text-white hover:bg-gray-900">
+        <a href="#" id="test-register" class="sm:inline-flex sm:w-auto px-3 py-2 rounded hover:text-white hover:bg-gray-900"style="display: none">
           <span>
             Register
           </span>
@@ -65,7 +70,7 @@
 
   <!-- Main -->
   <main class="bg-gray-300 flex-grow">
-    <div class="text-center py-20 px-12 max-w-screen-md text-gray-900 mx-auto">
+    <div id="container-register" style="display: none" class="text-center py-20 px-12 max-w-screen-md text-gray-900 mx-auto">
       <span class="text-2xl font-medium">Register</span>
       <div class="text-left mt-4 bg-white shadow-md rounded-lg">
         <div class="h-2 bg-gray-600 rounded-t-md"></div>
@@ -123,7 +128,7 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
 
-  <script src="scripts/checkAuth.js"></script>
+  <script src="scripts/utility.js"></script>
   <script src="scripts/script.js"></script>
   <script src="scripts/register.js"></script>
 </body>

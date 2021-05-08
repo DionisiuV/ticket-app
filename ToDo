@@ -1,0 +1,22 @@
+//Loading
+Navbar -> empty
+Content -> empty
+
+//Guest
+Navbar -> [Login; Register]
+Content -> Login form
+        -> Register form
+Empty /tickets ; /newticket
+
+//User
+Navbar -> [Tickets; New Ticket; Logout]
+Content -> Tickets form
+        -> Newticket form
+Empty /register ; /login 
+
+
+//////
+Show tickets in table
+Create new ticket and store in db
+
+Show tickets for user who is logged in

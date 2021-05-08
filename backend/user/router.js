@@ -1,13 +1,15 @@
 //initialize express router
 let router = require("express").Router();
+let session = require("express-session");
 
 //Import User Controller
 var userController = require("./userController");
 
 // User routes
 router.get("/logout", function (req, res) {
-  req.logout();
-  res.redirect("/");
+  req.session.destroy(function (err) {
+    res.redirect("/"); //Inside a callback… bulletproof!
+  });
 });
 
 router.get("/user", (req, res) => {

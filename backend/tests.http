@@ -21,11 +21,11 @@ Content-Type: application/json
 # 
 
 ### Tickets
-GET http://localhost:3000/api/ticket
+GET http://localhost:4000/api/ticket/
 
 ###
 
-POST http://localhost:3000/api/ticket
+POST http://localhost:4000/api/ticket/
 Content-Type: application/json
 
 {

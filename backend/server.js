@@ -24,7 +24,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(
   cors({
-    origin: "http://127.0.0.1:5500", //<- location of app
+    origin: "http://localhost:5500", //<- location of app
     credentials: true,
   })
 );

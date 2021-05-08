@@ -36,4 +36,15 @@ loginBtn.addEventListener("click", async () => {
   }
 });
 
-// .then(window.location.replace("./tickets.html"))
+window.onload = async () => {
+  await getUser();
+  if (isLogged) {
+    newTicket.style.display = "block";
+    ticket.style.display = "block";
+    logout.style.display = "block";
+  } else {
+    login.style.display = "block";
+    register.style.display = "block";
+    loginContainer.style.display = "block";
+  }
+};
